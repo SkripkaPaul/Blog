@@ -1,11 +1,11 @@
 <h2> Add new post </h2>
 
 <p>
-	<div class="form-floating">
-	  <textarea class="form-control" placeholder="Wrigth post here" id="floatingTextarea2" style="height: 300px"></textarea>
-	  <label for="floatingTextarea2">Posts</label>
-	</div>
+	<form action="/new" method="POST" class="form-floating">
+	  <textarea class="form-control" name="post" placeholder="Wrigth post here" id="floatingTextarea2" style="height:  300px"></textarea>
 
 	<br/>
 	 <button type="submit" class="btn btn-primary">Submit</button>
+
+	 </form>
 </p>
