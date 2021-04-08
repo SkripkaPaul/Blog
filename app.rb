@@ -37,5 +37,10 @@ end
 post '/new' do
 	@post = params[:post]
 
+	if @post.length <= 0
+		@error = 'Please type text'
+		return erb :new
+	end
+
 	erb "You tiped #{@post}"	
 end
