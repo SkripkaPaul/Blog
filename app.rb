@@ -9,5 +9,5 @@ end
 
 
 get '/new' do
-	erb 'News'
+	erb :new
 end
