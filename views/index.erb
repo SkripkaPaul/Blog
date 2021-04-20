@@ -1,1 +1,13 @@
 <h2> Latest posts </h2>
+
+<%  @result.each do |res| %>
+	<br/>
+	<p>
+		<%= res['created_date'] %>
+	</p>
+	<h2>
+		<%= res['content'] %>
+		<hr/>
+	</h2>
+
+<% end %>
