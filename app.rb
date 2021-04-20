@@ -26,7 +26,10 @@ configure do
 end 
 
 get '/' do
-	erb "Hello!!! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
+	
+	@result = @db.execute 'select * from posts order by id desc'
+
+	erb :index
 end
 
 
@@ -35,14 +38,14 @@ get '/new' do
 end
 
 post '/new' do
-	@post = params[:post]
+	@content = params[:post]
 
-	if @post.length <= 0
+	if @content.length <= 0
 		@error = 'Please type text'
 		return erb :new
 	end
 
-	@db.execute 'insert into Posts (content, created_date) values (?, datetime ())', [@post]
+	@db.execute 'insert into Posts (content, created_date) values (?, datetime ())', [@content]
 
-	erb "You tiped #{@post}"	
+	erb "You tiped #{@content}"	
 end
